@@ -10,12 +10,12 @@ export const index = async () => {
   }
 };
 
-// export const show = async (params) => {
-//   try {
-//     const request = await fetch(BASE_URL + "/starships/" + params);
-//     const response = await request.json();
-//     return response;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+export const show = async (params) => {
+  try {
+    const request = await fetch(BASE_URL + "/?search=" + params);
+    const response = await request.json();
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};

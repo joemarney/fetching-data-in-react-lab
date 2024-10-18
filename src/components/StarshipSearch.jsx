@@ -10,7 +10,7 @@ export default function StarshipSearch(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     // await props.fetchData(starship);
-    props.setSearchTerm(starship);
+    props.search(starship);
     setStarship("");
   };
 

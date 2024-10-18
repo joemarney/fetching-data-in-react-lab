@@ -1,5 +1,5 @@
 // IMPORTS
-import { index } from "./services/StarshipService";
+import { index, show } from "./services/StarshipService";
 import { useState, useEffect } from "react";
 
 // COMPONENTS
@@ -19,11 +19,16 @@ const App = () => {
     showShips();
   }, []);
 
+  const search = async (searchTerm) => {
+    const data = await show(searchTerm);
+    setStarships(data.results);
+  };
+
   return (
     <>
       <h1>Star Wars API</h1>
-      <StarshipSearch setSearchTerm={setSearchTerm} />
-      <StarshipList starships={starships} searchTerm={searchTerm} />
+      <StarshipSearch search={search} />
+      <StarshipList starships={starships} />
     </>
   );
 };
